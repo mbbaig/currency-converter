@@ -1,0 +1,40 @@
+{
+    "extends": "airbnb-base",
+    "parser": "babel-eslint",
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true,
+        "node": true
+    },
+    "settings": {
+        "react": {
+            "createClass": "createReactClass", // Regex for Component Factory to use, default to "createReactClass"
+            "pragma": "React",  // Pragma to use, default to "React"
+            "version": "16.0" // React version, default to the latest React stable release
+        },
+        "propWrapperFunctions": [ "forbidExtraProps" ] // The names of any functions used to wrap the propTypes object, such as `forbidExtraProps`. If this isn't set, any propTypes wrapped in a function will be skipped.
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "plugins": [
+        "json",
+        "react"
+    ],
+    "rules": {
+        "indent": ["error", 4],
+        "no-const-assign": "error",
+        "no-this-before-super": "error",
+        "no-undef": "error",
+        "no-unreachable": "error",
+        "no-unused-vars": "off",
+        "constructor-super": "error",
+        "valid-typeof": "error",
+        "no-mixed-spaces-and-tabs": "error",
+        "no-lonely-if": "error"
+    }
+}
