@@ -10,7 +10,7 @@ async function tryToConvertCurrency(valueToconvert, fromCurrency, toCurrency) {
             fx.base = apiData.data.base;
             convertedValue = fx(valueToconvert).from(fromCurrency).to(toCurrency);
         }
-        return convertedValue;
+        return convertedValue.toFixed(2);
     } catch (error) {
         console.log(error);
         return error;

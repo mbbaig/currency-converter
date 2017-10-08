@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Converter from '../converter/Converter';
+import Modal from '../modal/Modal';
 import money from '../../utils/money';
 import './CurrencyConverter.css';
 
@@ -33,39 +34,39 @@ class CurrencyConverter extends Component {
         }
     }
 
-    handleFromCurrencyChange(changeValue) {
-        if (changeValue) {
-            money.tryToConvertCurrency(
-                this.state.fromMoney,
-                changeValue,
-                this.state.toCurrency,
-            ).then((convertedValue) => {
-                this.setState({
-                    toMoney: convertedValue,
-                    fromCurrency: changeValue,
-                });
+    calculateToMoney(fromMoney, fromCurrencyChange, toCurrencyChange, changeValue) {
+        money.tryToConvertCurrency(
+            this.state.fromMoney,
+            fromCurrencyChange ? changeValue : this.state.fromCurrency,
+            toCurrencyChange ? changeValue : this.state.toCurrency,
+        ).then((convertedValue) => {
+            this.setState({
+                toMoney: convertedValue,
             });
+        });
+    }
+
+    handleFromCurrencyChange(changeValue) {
+        if (this.state.fromMoney) {
+            this.calculateToMoney(this.state.fromMoney, true, false, changeValue);
         }
+        this.setState({
+            fromCurrency: changeValue,
+        });
     }
 
     handleToCurrencyChange(changeValue) {
-        if (changeValue) {
-            money.tryToConvertCurrency(
-                this.state.fromMoney,
-                this.state.fromCurrency,
-                changeValue,
-            ).then((convertedValue) => {
-                this.setState({
-                    toMoney: convertedValue,
-                    toCurrency: changeValue,
-                });
-            });
+        if (this.state.fromMoney) {
+            this.calculateToMoney(this.state.fromMoney, false, true, changeValue);
         }
+        this.setState({
+            toCurrency: changeValue,
+        });
     }
 
     render() {
         return (
-            <div className="CurrencyConverter">
+            <div className="CurrencyConverter slds-border_top slds-border_left slds-border_bottom slds-border_right">
                 <header>
                     Currency Converter
                 </header>
@@ -79,6 +80,8 @@ class CurrencyConverter extends Component {
                     money={this.state.toMoney}
                     currency={this.state.toCurrency}
                     onCurrencyChange={this.handleToCurrencyChange} />
+                <Modal
+                    currentData={this.state} />
             </div>
         );
     }
