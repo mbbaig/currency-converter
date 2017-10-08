@@ -12,8 +12,7 @@ async function tryToConvertCurrency(valueToconvert, fromCurrency, toCurrency) {
         }
         return convertedValue.toFixed(2);
     } catch (error) {
-        console.log(error);
-        return error;
+        throw error;
     }
 }
 

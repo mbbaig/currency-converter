@@ -28,6 +28,9 @@ class Modal extends Component {
                 dateOfRates: rates.data.date,
                 toCurrencyRate: rates.data.rates[this.props.currentData.toCurrency] || 1,
             });
+        }).catch((error) => {
+            alert(`An error occurred when communicating with the API
+                Details: ${error.message}`);
         });
     }
 

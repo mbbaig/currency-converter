@@ -30,6 +30,9 @@ class CurrencyConverter extends Component {
                     fromMoney: changeValue,
                     toMoney: convertedValue,
                 });
+            }).catch((error) => {
+                alert(`An error occurred when communicating with the API
+                Details: ${error.message}`);
             });
         }
     }
@@ -43,6 +46,9 @@ class CurrencyConverter extends Component {
             this.setState({
                 toMoney: convertedValue,
             });
+        }).catch((error) => {
+            alert(`An error occurred when communicating with the API
+                Details: ${error.message}`);
         });
     }
 

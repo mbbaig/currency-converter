@@ -6,8 +6,7 @@ async function getRates(fromCurrency, toCurrency) {
         const response = await axios.get(url);
         return response;
     } catch (error) {
-        console.error(error);
-        return error;
+        throw error;
     }
 }
 
