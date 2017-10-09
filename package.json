@@ -2,7 +2,7 @@
   "name": "currency-calculator",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://mbbaig.github.io/currency-converter",
+  "homepage": "https://mbbaig.github.io/currency-converter",
   "dependencies": {
     "axios": "^0.16.2",
     "gh-pages": "^1.0.0",
