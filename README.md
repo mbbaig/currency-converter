@@ -38,3 +38,4 @@ To serve the project in productoin mode:
 * [ ] Add support for more currencies
 * [ ] Add Redux for state management
 * [ ] Add efficient way to reverse-convert value entered into the converted input box
+* [ ] Add accessibility features
