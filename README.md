@@ -10,6 +10,10 @@ Follow the steps to get project dependancies:
 1. `cd currency-converter`
 1. `npm install`
 
+### OR
+
+visit [this link](https://mbbaig.github.io/currency-converter)
+
 ## Serving in Development mode
 
 To serve the project in development mode:
