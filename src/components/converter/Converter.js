@@ -2,20 +2,14 @@ import React, { Component } from 'react';
 import './Converter.css';
 
 class Converter extends Component {
-    constructor(props) {
-        super(props);
-        this.handleMoneyChange = this.handleMoneyChange.bind(this);
-        this.handleCurrencyChange = this.handleCurrencyChange.bind(this);
-    }
-
-    handleMoneyChange(event) {
+    handleMoneyChange = (event) => {
         const money = event.target.value;
-        if (money && this.props.onMoneyChange) {
+        if (this.props.onMoneyChange) {
             this.props.onMoneyChange(money);
         }
     }
 
-    handleCurrencyChange(event) {
+    handleCurrencyChange = (event) => {
         const currency = event.target.value;
         if (currency) {
             this.props.onCurrencyChange(currency);
@@ -33,11 +27,9 @@ class Converter extends Component {
                 <br />
                 <input
                     type="number"
-                    name="money"
-                    aria-label={this.props.labelText}
-                    step="0.01"
                     className="slds-input"
                     placeholder="0.00"
+                    step="0.01"
                     value={this.props.money}
                     onChange={this.handleMoneyChange} />
                 <select

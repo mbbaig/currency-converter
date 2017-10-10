@@ -34,10 +34,15 @@ class CurrencyConverter extends Component {
                 alert(`An error occurred when communicating with the API
                 Details: ${error.message}`);
             });
+        } else {
+            this.setState({
+                fromMoney: changeValue,
+                toMoney: '',
+            });
         }
     }
 
-    calculateToMoney(fromMoney, fromCurrencyChange, toCurrencyChange, changeValue) {
+    calculateToMoney(fromCurrencyChange, toCurrencyChange, changeValue) {
         money.tryToConvertCurrency(
             this.state.fromMoney,
             fromCurrencyChange ? changeValue : this.state.fromCurrency,
@@ -54,7 +59,7 @@ class CurrencyConverter extends Component {
 
     handleFromCurrencyChange(changeValue) {
         if (this.state.fromMoney) {
-            this.calculateToMoney(this.state.fromMoney, true, false, changeValue);
+            this.calculateToMoney(true, false, changeValue);
         }
         this.setState({
             fromCurrency: changeValue,
@@ -63,7 +68,7 @@ class CurrencyConverter extends Component {
 
     handleToCurrencyChange(changeValue) {
         if (this.state.fromMoney) {
-            this.calculateToMoney(this.state.fromMoney, false, true, changeValue);
+            this.calculateToMoney(false, true, changeValue);
         }
         this.setState({
             toCurrency: changeValue,
