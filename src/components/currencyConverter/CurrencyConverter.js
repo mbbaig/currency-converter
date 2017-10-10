@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import Converter from '../converter/Converter';
-import Modal from '../modal/Modal';
+import Disclaimer from '../disclaimer/Disclaimer';
 import money from '../../utils/money';
 import './CurrencyConverter.css';
 
+/**
+ * CurrencyConverter component contains the other
+ * components that make the whole application.
+ *
+ * @extends Component
+ */
 class CurrencyConverter extends Component {
     constructor(props) {
         super(props);
@@ -87,7 +93,7 @@ class CurrencyConverter extends Component {
                     money={this.state.toMoney}
                     currency={this.state.toCurrency}
                     onCurrencyChange={this.handleToCurrencyChange} />
-                <Modal
+                <Disclaimer
                     currentData={this.state} />
             </div>
         );

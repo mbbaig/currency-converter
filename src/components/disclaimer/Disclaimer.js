@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import ReactModal from 'react-modal';
 import fixer from '../../utils/fixer';
-import './Modal.css';
+import './Disclaimer.css';
 
-class Modal extends Component {
+/**
+ * Disclaimer component displays the disclaimer information.
+ *
+ * @extends Component
+ */
+class Disclaimer extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -72,4 +77,4 @@ class Modal extends Component {
     }
 }
 
-export default Modal;
+export default Disclaimer;

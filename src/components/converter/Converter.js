@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import './Converter.css';
 
+/**
+ * Converter component contains the form elements.
+ *
+ * @extends Component
+ */
 class Converter extends Component {
     handleMoneyChange = (event) => {
         const money = event.target.value;

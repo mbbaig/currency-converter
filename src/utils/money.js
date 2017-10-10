@@ -1,6 +1,17 @@
 import { fx } from 'money';
 import fixer from './fixer';
 
+/**
+ * Covert a given value from one currency to another
+ *
+ * @param {Number} valueToconvert
+ * @param {String} fromCurrency
+ * @param {String} toCurrency
+ *
+ * @returns {Promise}
+ *
+ * @example tryToConvertCurrency(10, 'CAD', 'USD');
+ */
 async function tryToConvertCurrency(valueToconvert, fromCurrency, toCurrency) {
     try {
         const apiData = await fixer.getRates(fromCurrency, toCurrency);
