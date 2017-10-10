@@ -11,15 +11,13 @@ class Modal extends Component {
             dateOfRates: '',
             toCurrencyRate: '',
         };
-        this.handleClick = this.handleClick.bind(this);
-        this.getData = this.getData.bind(this);
     }
 
-    handleClick() {
+    handleClick = () => {
         this.setState({ isOpen: !this.state.isOpen });
     }
 
-    getData() {
+    getData = () => {
         fixer.getRates(
             this.props.currentData.fromCurrency,
             this.props.currentData.toCurrency,

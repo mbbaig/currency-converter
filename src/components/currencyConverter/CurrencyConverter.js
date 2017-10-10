@@ -13,13 +13,9 @@ class CurrencyConverter extends Component {
             fromCurrency: 'CAD',
             toCurrency: 'USD',
         };
-
-        this.handleFromMoneyChange = this.handleFromMoneyChange.bind(this);
-        this.handleFromCurrencyChange = this.handleFromCurrencyChange.bind(this);
-        this.handleToCurrencyChange = this.handleToCurrencyChange.bind(this);
     }
 
-    handleFromMoneyChange(changeValue) {
+    handleFromMoneyChange = (changeValue) => {
         if (changeValue) {
             money.tryToConvertCurrency(
                 changeValue,
@@ -42,7 +38,7 @@ class CurrencyConverter extends Component {
         }
     }
 
-    calculateToMoney(fromCurrencyChange, toCurrencyChange, changeValue) {
+    calculateToMoney = (fromCurrencyChange, toCurrencyChange, changeValue) => {
         money.tryToConvertCurrency(
             this.state.fromMoney,
             fromCurrencyChange ? changeValue : this.state.fromCurrency,
@@ -57,7 +53,7 @@ class CurrencyConverter extends Component {
         });
     }
 
-    handleFromCurrencyChange(changeValue) {
+    handleFromCurrencyChange = (changeValue) => {
         if (this.state.fromMoney) {
             this.calculateToMoney(true, false, changeValue);
         }
@@ -66,7 +62,7 @@ class CurrencyConverter extends Component {
         });
     }
 
-    handleToCurrencyChange(changeValue) {
+    handleToCurrencyChange = (changeValue) => {
         if (this.state.fromMoney) {
             this.calculateToMoney(false, true, changeValue);
         }
